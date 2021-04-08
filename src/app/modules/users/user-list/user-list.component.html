@@ -1,0 +1,41 @@
+<div class="page-title">
+    Usuarios
+</div>
+<div class="page-header mt-3">
+    <div class="search-container mr-2">
+        <img class="search-icon" src="assets/icons/search.svg">
+        <input class="search-input" type="search" placeholder="Buscar" [(ngModel)]="search.value"
+            (keyup)="$event.keyCode === 13 || search.value === '' ? search.change() : null">
+    </div>
+    <button type="button" class="btn btn-secondary btn-sm ml-2 min-width-unset" routerLink="../create">
+        Nuevo usuario
+    </button>
+</div>
+<app-table [context]="this">
+<table class="table-backoffice">
+    <caption>
+        Listado de usuarios
+    </caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo electrónico</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let user of list">
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user._full_name }}</td>
+                <td>{{ user.email }} </td>
+                <td class="table-actions">
+                    <div class="table-action">
+                        <i class="fas fa-chevron-right" [routerLink]="['../update/' + user.id]"></i>
+                    </div>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+</app-table>

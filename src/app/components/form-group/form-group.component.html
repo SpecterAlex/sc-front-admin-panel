@@ -1,0 +1,19 @@
+<div class="form-group-container"
+    [ngClass]="{ 'form-group--invalid': abstractControl.invalid && abstractControl.touched }">
+    <label class="title" [for]="id">
+        {{ title }} <span *ngIf="!required">(opcional)</span>
+    </label>
+    <ng-content></ng-content>
+    <div class="errors" *ngIf="abstractControl.invalid && abstractControl.touched">
+        <small *ngIf="abstractControl.errors.required" class="form-text-invalid">
+            Campo requerido.
+        </small>
+        <small *ngIf="!abstractControl.errors.required && abstractControl.errors.invalidPattern"
+            class="form-text-invalid">
+            {{ abstractControl.errors.invalidPattern }}
+        </small>
+        <small *ngIf="!abstractControl.errors.required && (abstractControl.errors.matDatepickerParse?.text || abstractControl.errors.matDatepickerParse?.text === '') " class="form-text-invalid">
+            Fecha inválida.
+        </small>
+    </div>
+</div>

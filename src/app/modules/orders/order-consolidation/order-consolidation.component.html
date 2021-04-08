@@ -1,0 +1,65 @@
+<div class="order-consolidation">
+    <div class="page-title">
+        <i class="page-btn-back fas fa-chevron-left" (click)="onBackClick()"></i>
+        Consolidación de pedidos
+    </div>
+    <div class="row no-gutters mt-3">
+        <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+            <div class="card-form">
+                <div class="card-title">
+                    Listado de pedidos
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table-backoffice">
+                            <thead>
+                                <tr>
+                                    <th> Pedido ID </th>
+                                    <th> Cliente </th>
+                                    <th> Total </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card-form mt-3">
+                <div class="card-title">
+                    Datos de pedido productivo
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Código de pedido'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Cantidad a producir'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Estación de producción'" [message]="''"></app-label-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 pl-3">
+            <div class="card-form">
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success btn-block">
+                          Generar consolidación
+                        </button>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <button type="button" class="btn btn-danger btn-block" (click)="onBackClick()">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

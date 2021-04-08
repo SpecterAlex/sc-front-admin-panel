@@ -1,0 +1,130 @@
+<div class="customer-create-and-update">
+  <div class="page-title">
+    <i class="page-btn-back fas fa-chevron-left" (click)="onBackClick()"></i>
+    <span class="btn-text">{{ id.value ? 'Editar cliente' : ' Nuevo cliente' }}</span>
+  </div>
+  <form [formGroup]="customerForm" (ngSubmit)="onCustomerFormSubmit()">
+    <div class="row no-gutters mt-3">
+      <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+        <div class="card-form">
+          <div class="card-title">
+            Datos del cliente
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <app-form-group class="form-group-classic" [id]="'name'" [title]="'Nombre del cliente'" [required]="true"
+                [abstractControl]="name">
+                <input class="form-control" id="name" type="text" formControlName="name"
+                  placeholder="Nombre del cliente">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'rfc'" [title]="'RFC'" [required]="false"
+                [abstractControl]="rfc">
+                <input class="form-control" id="rfc" type="text" formControlName="rfc" placeholder="RFC">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'email'" [title]="'Correo electrónico'" [required]="true"
+                [abstractControl]="email">
+                <input class="form-control" id="email" type="text" formControlName="email"
+                  placeholder="Correo electrónico">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'phone_number'" [title]="'Número telefónico'"
+                [required]="true" [abstractControl]="phone_number">
+                <input class="form-control" id="phone_number" type="text" formControlName="phone_number"
+                  placeholder="Número telefónico" maxlength="10" appInputRestriction="onlyNumbers">
+              </app-form-group>
+            </div>
+          </div>
+        </div>
+        <div class="card-form mt-3">
+          <div class="card-title">
+            Datos de contacto
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'contact_name'" [title]="'Nombre del contacto'"
+                [required]="false" [abstractControl]="contact_name">
+                <input class="form-control" id="contact_name" type="text" formControlName="contact_name"
+                  placeholder="Nombre del contacto">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'contact_number'" [title]="'Número de contacto'"
+                [required]="false" [abstractControl]="contact_number">
+                <input class="form-control" id="contact_number" type="text" formControlName="contact_number"
+                  placeholder="Número de contacto" maxlength="10" appInputRestriction="onlyNumbers">
+              </app-form-group>
+            </div>
+          </div>
+        </div>
+        <div class="card-form mt-3">
+          <div class="card-title">
+            Direcciones
+          </div>
+          <div class="row">
+            <ng-container *ngFor="let address of addresses">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3">
+                <div class="card"
+                  [ngClass]="{'border-left-primary': !address.invoice , 'border-left-success': address.invoice}"
+                  (click)="address.id !== 0 ? onUpdateAddress(address.id) : null">
+
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-gray-800 text-uppercase">
+                          {{ address.street +' '+ address.number}}
+                        </div>
+                        <div class="text-xs font-weight-bold"
+                          [ngClass]="{'text-primary': !address.invoice , 'text-success': address.invoice}">
+                          {{ address.invoice ? 'Facturación' :'Envío' }}
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <app-address-create-and-update (save)="onAddressChange($event)"></app-address-create-and-update>
+              <button type="button" class="btn btn-lg btn-info btn-block mt-3" (click)="onCreateAddress()">
+                Agregar direccíón
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 pl-3">
+        <div class="card-form">
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-success btn-block" [appBusy]="busy">
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                <span class="btn-text">{{ id.value ? 'Actualizar' : 'Guardar' }}</span>
+              </button>
+            </div>
+            <div class="col-12 mt-3" *ngIf="id.value">
+              <button type="button" class="btn btn-danger btn-block" (click)="onDeleteCustomer()">
+                Eliminar
+              </button>
+            </div>
+            <div class="col-12 mt-3">
+              <button type="button" class="btn btn-light btn-block" (click)="onBackClick()">
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

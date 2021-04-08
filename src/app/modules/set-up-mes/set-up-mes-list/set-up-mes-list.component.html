@@ -1,0 +1,54 @@
+<div class="page-title">
+  {{ currentPage.title }}
+</div>
+<div class="page-header mt-3">
+  <div class="search-container mr-2">
+    <img class="search-icon" src="assets/icons/search.svg">
+    <input class="search-input" type="search" placeholder="Buscar" [(ngModel)]="search.value"
+      (keyup)="$event.keyCode === 13 || search.value === '' ? search.change() : null">
+  </div>
+
+  <app-production-line-create-and-update *ngIf="currentPage.id === EPages.Lines"
+    (productionLine)="onRefreshList($event)">
+  </app-production-line-create-and-update>
+
+  <app-production-station-create-and-update *ngIf="currentPage.id === EPages.Stations"
+    (productionStation)="onRefreshList($event)">
+  </app-production-station-create-and-update>
+
+  <app-production-shift-create-and-update *ngIf="currentPage.id === EPages.Shifts"
+    (productionShift)="onRefreshList($event)">
+  </app-production-shift-create-and-update>
+
+  <button type="button" class="btn btn-secondary btn-sm ml-2 min-width-unset" (click)="onCreate()">
+    {{currentPage.titleButtonAdd}}
+  </button>
+</div>
+<app-table [context]="this">
+  <table class="table-backoffice">
+    <caption>
+      {{currentPage.titleList}}
+    </caption>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Código</th>
+        <th>Fecha de creacíon</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of list">
+        <tr>
+          <td> {{ item.name }} </td>
+          <td> {{ item.code }} </td>
+          <td> {{ item.created_at | date }} </td>
+          <td class="table-actions">
+            <div class="table-action">
+              <i class="fas fa-chevron-right" (click)="onUpdate(item.id)"></i>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</app-table>

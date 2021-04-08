@@ -1,0 +1,152 @@
+::ng-deep #pagination {
+    text-align: end;
+
+    .paginationjs {
+        line-height: 1.6;
+        box-sizing: initial;
+        display: inline-block;
+
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently */
+    }
+    .paginationjs:after {
+        display: table;
+        content: " ";
+        clear: both;
+    }
+    .paginationjs .paginationjs-pages {
+        float: left;
+    }
+    .paginationjs .paginationjs-pages ul {
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    .paginationjs .paginationjs-go-button,
+    .paginationjs .paginationjs-go-input,
+    .paginationjs .paginationjs-nav {
+        float: left;
+        margin-left: 10px;
+        font-size: 14px;
+    }
+    .paginationjs .paginationjs-pages li {
+        float: left;
+        border-right: none;
+        list-style: none;
+        margin: 0 5px;
+
+        background-color: var(--color-white);
+        border-radius: 3px;
+    }
+    .paginationjs .paginationjs-pages li > a {
+        min-width: 30px;
+        height: 28px;
+        line-height: 28px;
+        display: block;
+        background: var(--color-white);
+        font-size: 12px;
+        text-decoration: none;
+        text-align: center;
+
+        background-color: var(--color-white);
+        border-radius: 3px;
+        background: transparent;
+        color: #6f6f6f;
+    }
+    .paginationjs .paginationjs-pages li > a:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+    .paginationjs .paginationjs-pages li.active {
+        border: none;
+    }
+    .paginationjs .paginationjs-pages li.active > a {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+    .paginationjs .paginationjs-pages li.disabled > a {
+        opacity: 0.3;
+    }
+    .paginationjs .paginationjs-pages li.disabled > a:hover {
+        background: var(--color-white);
+        color: #333;
+    }
+    .paginationjs .paginationjs-pages li:last-child > a:hover {
+        background-color: var(--color-white);
+    }
+    .paginationjs .paginationjs-pages li:first-child > a:hover {
+        background-color: var(--color-white);
+    }
+
+    .paginationjs .paginationjs-go-input > input[type="text"] {
+        width: 30px;
+        height: 28px;
+        background: var(--color-white);
+        border-radius: 3px;
+        border: 1px solid #aaa;
+        padding: 0;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: baseline;
+        outline: 0;
+        box-shadow: none;
+        box-sizing: initial;
+    }
+    .paginationjs .paginationjs-go-button > input[type="button"] {
+        min-width: 40px;
+        height: 30px;
+        line-height: 28px;
+        background: var(--color-white);
+        border-radius: 3px;
+        border: 1px solid #aaa;
+        text-align: center;
+        padding: 0 8px;
+        font-size: 14px;
+        vertical-align: baseline;
+        outline: 0;
+        box-shadow: none;
+        color: #333;
+        cursor: pointer;
+        vertical-align: middle\9;
+    }
+    .paginationjs .paginationjs-go-button > input[type="button"]:hover {
+        background-color: #f8f8f8;
+    }
+    .paginationjs .paginationjs-nav {
+        height: 30px;
+        line-height: 30px;
+    }
+    .paginationjs .paginationjs-go-button,
+    .paginationjs .paginationjs-go-input {
+        margin-left: 5px\9;
+    }
+    .paginationjs .paginationjs-pages li.paginationjs-next {
+        a,
+        a:hover {
+            background-image: url(~src/assets/icons/arrow_right.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    .paginationjs .paginationjs-pages li.paginationjs-prev {
+        a,
+        a:hover {
+            background-image: url(~src/assets/icons/arrow_right.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+    .paginationjs .paginationjs-go-input > input[type="text"] {
+        line-height: 28px\9;
+        vertical-align: middle\9;
+    }
+}

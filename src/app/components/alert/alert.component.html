@@ -1,0 +1,24 @@
+<div class="sc-alert" (mouseenter)="pause = true" (mouseleave)="pause = false">
+  <div *ngFor=" let alert of alerts" class="sc-alert__alert sc-alert__alert--{{alert.type}}"
+    [ngClass]="{'removing': alert.removing}" (click)="onAlertClick(alert)">
+
+    <!-- image -->
+    <div class="sc-alert__alert__image">
+      <img data-cy="alert-message-image" src="assets/icons/{{alert.type}}.svg">
+    </div>
+
+    <!-- separator -->
+    <div class="sc-alert__alert__separator">
+    </div>
+
+    <!-- messages -->
+    <div class="sc-alert__alert__messages">
+      <div data-cy="alert-message-header" class="sc-alert__alert__messages__message">
+        {{ alert.message }} <span *ngIf="alert.percentage !== undefined">{{ alert.percentage }}%</span>
+      </div>
+      <div data-cy="alert-message-detail" class="sc-alert__alert__messages__message-detail">
+        {{ alert.messageDetail }}
+      </div>
+    </div>
+  </div>
+</div>

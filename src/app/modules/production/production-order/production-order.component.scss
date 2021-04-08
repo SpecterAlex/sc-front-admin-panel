@@ -1,0 +1,62 @@
+.order-production {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+
+  .order-code {
+    color: #05a40f;
+  }
+}
+
+.production-counters {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+  width: 180px;
+  height: 95px;
+
+  .title-couter {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+
+    &--primary {
+      color: #4e73df;
+    }
+
+    &--success {
+      color: #05a40f;
+    }
+  }
+
+  .text-counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-left: 5px;
+    color: #5a5c69;
+  }
+
+  .icon-append {
+    position: absolute;
+    margin: 12px 3px 0px 8px;
+    right: 5px;
+    color: #d1d3e2;
+  }
+}
+
+.production-progress-bar {
+  height: 35px;
+}
+
+.title {
+  color: var(--color-gray-2);
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}

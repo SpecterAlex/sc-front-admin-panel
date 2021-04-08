@@ -1,0 +1,91 @@
+<div class="product-create-and-update">
+  <div class="page-title">
+    <i class="page-btn-back fas fa-chevron-left" (click)="onBackClick()"></i>
+    <span class="btn-text">{{ id.value ? 'Editar producto' : ' Nuevo producto' }}</span>
+  </div>
+  <form [formGroup]="productForm" (ngSubmit)="onProductFormSubmit()">
+    <div class="row no-gutters mt-3">
+      <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+        <div class="card-form">
+          <div class="card-title">
+            Datos del producto
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <app-form-group class="form-group-classic" [id]="'name'" [title]="'Nombre del Producto'" [required]="true"
+                [abstractControl]="name">
+                <input class="form-control" id="name" type="text" formControlName="name"
+                  placeholder="Nombre del Producto">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'price'" [title]="'Precio'" [required]="true"
+                [abstractControl]="price">
+                <input class="form-control" id="price" type="number" formControlName="price" placeholder="Precio">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'volume'" [title]="'Presentacíon'" [required]="true"
+                [abstractControl]="volume">
+                <input class="form-control" id="volume" type="text" formControlName="volume" placeholder="Presentacíon"
+                  appInputRestriction="onlyNumbers">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <app-form-group class="form-group-classic" [id]="'description'" [title]="'Descripción del producto'"
+                [required]="true" [abstractControl]="description">
+                <textarea class="form-control" id="description" type="text" formControlName="description"
+                  placeholder="Descripción del producto" rows="5" maxlength="100">
+                </textarea>
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <app-form-group class="form-group-classic" [id]="'url_image'" [title]="'Imagen'" [required]="true"
+                [abstractControl]="url_image">
+                <div class="image-uploader">
+                  <div class="images">
+                    <ng-container *ngIf="url_image.value">
+                      <div class="image-container square">
+                        <img [src]="url_image.value.url">
+                        <span class="image-text" (click)="onImageDelete()">
+                          {{ url_image.value ? 'Quitar' : '' }}</span>
+                      </div>
+                    </ng-container>
+                  </div>
+                  <div class="square uploader" [ngClass]="{'d-none': url_image.value}"
+                    (click)="inputFileUploader.click()">
+                    <img src="assets/icons/photo.svg">
+                    <input #inputFileUploader type="file" accept="image/*" style="display:none;"
+                      (change)="onFileUploaderChanges($event)" />
+                  </div>
+                </div>
+              </app-form-group>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 pl-3">
+        <div class="card-form">
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-success btn-block" [appBusy]="busy">
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                <span class="btn-text">{{ id.value ? 'Actualizar' : 'Guardar' }}</span>
+              </button>
+            </div>
+            <div class="col-12 mt-3" *ngIf="id.value">
+              <button type="button" class="btn btn-danger btn-block" (click)="onDeleteProduct()">
+                Eliminar
+              </button>
+            </div>
+            <div class="col-12 mt-3">
+              <button type="button" class="btn btn-light btn-block" (click)="onBackClick()">
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

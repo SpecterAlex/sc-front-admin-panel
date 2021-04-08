@@ -1,0 +1,41 @@
+<div class="page-title">
+    Pedidos
+</div>
+<div class="page-header mt-3">
+    <div class="search-container mr-2">
+        <img class="search-icon" src="assets/icons/search.svg">
+        <input class="search-input" type="search" placeholder="Buscar" [(ngModel)]="search.value"
+            (keyup)="$event.keyCode === 13 || search.value === '' ? search.change() : null">
+    </div>
+    <button type="button" class="btn btn-secondary btn-sm ml-2 min-width-unset" routerLink="../consolidation">
+        Nueva consolidación
+    </button>
+</div>
+<!-- <app-table [context]="this"> -->
+    <table class="table-backoffice">
+        <caption>
+            Listado de pedidos
+        </caption>
+        <thead>
+            <tr>
+                <th> Pedido ID </th>
+                <th> Cliente </th>
+                <th> Total </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <ng-container *ngFor="let item of list"> -->
+                <tr>
+                    <td> 102032 </td>
+                    <td> 102032 </td>
+                    <td> 102032 </td>
+                    <td class="table-actions">
+                        <div class="table-action">
+                            <i class="fas fa-chevron-right" [routerLink]="'../details/1'"></i>
+                        </div>
+                    </td>
+                </tr>
+            <!-- </ng-container> -->
+        </tbody>
+    </table>
+<!-- </app-table> -->

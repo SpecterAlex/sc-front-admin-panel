@@ -1,0 +1,14 @@
+<div id="wrapper">
+  <div class="bg-gradient-primary">
+    <app-sidebar [sideBarLinks]="sidebarLinks"></app-sidebar>
+  </div>
+  <app-alert></app-alert>
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      <app-navbar [navLinks]="navLinks" [nameUser]="this.userName" (logout)="onLogout()" (sidebarAction)="onSidebarAction()"></app-navbar>
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

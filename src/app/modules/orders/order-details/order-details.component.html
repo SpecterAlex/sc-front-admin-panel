@@ -1,0 +1,80 @@
+<div class="order-deatils">
+    <div class="page-title">
+        <i class="page-btn-back fas fa-chevron-left" (click)="onBackClick()"></i>
+        Detalles del pedido
+    </div>
+    <div class="row no-gutters mt-3">
+        <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+            <div class="card-form">
+                <div class="card-title">
+                    Pedido
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Código de pedido'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Cliente'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Costo total'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Fecha pedido'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Fecha actualización'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Código pedido productivo'" [message]="''"></app-label-group>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-form mt-3">
+                <div class="card-title">
+                    Productos
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+
+            <div class="card-form mt-3">
+                <div class="card-title">
+                    Datos de envio
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Dirección'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Código postal'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Municipio'" [message]="''"></app-label-group>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <app-label-group [title]="'Estado'" [message]="''"></app-label-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 pl-3">
+            <div class="card-form">
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-dark btn-block" (click)="onBackClick()">
+                            Regresar
+                        </button>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <button type="button" class="btn btn-danger btn-block" (click)="onBackClick()">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

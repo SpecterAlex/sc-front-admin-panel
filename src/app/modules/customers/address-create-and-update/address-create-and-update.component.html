@@ -1,0 +1,79 @@
+<div class="modal fade" id="modalAddressCreateAndUpdate" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <form [formGroup]="addressForm" (ngSubmit)="onAddressFormSubmit()">
+        <div class="card-form">
+          <div class="card-title">
+            {{ id.value ? 'Editar de dirección' : 'Nueva dirección' }}
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+              <app-form-group class="form-group-classic" [id]="'zip_code'" [title]="'Código postal'" [required]="true"
+                [abstractControl]="zip_code">
+                <input class="form-control" id="zip_code" type="text" formControlName="zip_code"
+                  placeholder="Código postal" maxlength="5">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+              <app-form-group class="form-group-classic" [id]="'suburb_id'" [title]="'Colonia'" [required]="true"
+                [abstractControl]="suburb_id">
+                <select class="form-control" id="suburb_id" formControlName="suburb_id">
+                  <option *ngFor="let suburb of suburbs" [value]="suburb.id">
+                    {{ suburb.name }}
+                  </option>
+                </select>
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+              <app-form-group class="form-group-classic" [id]="'street'" [title]="'Calle'" [required]="true"
+                [abstractControl]="street">
+                <input class="form-control" id="street" type="text" formControlName="street" placeholder="Calle">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+              <app-form-group class="form-group-classic" [id]="'number'" [title]="'Número '" [required]="true"
+                [abstractControl]="number">
+                <input class="form-control" id="number" type="text" formControlName="number" placeholder="Número">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'phone_number'" [title]="'Teléfono'" [required]="true"
+                [abstractControl]="phone_number">
+                <input class="form-control" id="phone_number" type="text" formControlName="phone_number"
+                  placeholder="Teléfono">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'invoice'" [title]="'Es dirección de facturación'"
+                [required]="true" [abstractControl]="invoice">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input id="yes" type="radio" title="" [value]="true" formControlName="invoice"
+                    class="custom-control-input" required>
+                  <label class="custom-control-label" for="yes">Si</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input id="no" type="radio" title="" [value]="false" formControlName="invoice"
+                    class="custom-control-input" required>
+                  <label class="custom-control-label" for="no">No</label>
+                </div>
+              </app-form-group>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-4 ml-auto">
+              <button type="button" class="btn btn-light btn-block" (click)="onBackClick()">Cancelar</button>
+            </div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-success btn-block" [disabled]="!addressForm.valid">
+                <span class="btn-text">
+                  {{ id.value ? 'Guardar' : 'Crear' }}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

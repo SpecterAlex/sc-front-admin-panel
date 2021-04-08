@@ -1,0 +1,12 @@
+<!-- <ng-content *ngIf="context.list && context.list?.length !== 0">
+</ng-content> -->
+
+<ng-content>
+</ng-content>
+
+<app-no-info *ngIf="context.list?.length === 0">
+</app-no-info>
+
+<app-table-pagination [ngClass]="{'d-none': context.list?.length === 0 || context.totalElements < 11}"
+    [totalElements]="context.totalElements">
+</app-table-pagination>

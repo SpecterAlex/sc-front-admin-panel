@@ -1,0 +1,47 @@
+<div class="modal modal-confirm" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="modalConfirm"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-title">
+                    {{ config?.title }}
+                </div>
+                <div class="modal-text-message">
+                    {{ config?.message }}
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-5">
+                        <input type="button" class="btn btn-danger btn-sm btn-block" (click)="onCancelClick()"
+                            value="Cancelar">
+                    </div>
+                    <div class="col-5">
+                        <input type="button" class="btn btn-success btn-sm btn-block" (click)="onAcceptClick()"
+                            value="Aceptar">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-confirm" id="modalAccept" tabindex="-1" role="dialog" aria-labelledby="modalAccept"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-title">
+                    {{ config?.title }}
+                </div>
+                <div *ngIf="config?.message" class="modal-text-message">
+                    {{ config?.message }}
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-5">
+                        <input type="button" class="btn btn-primary btn-sm btn-block" (click)="onOkClick()" value="Ok">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

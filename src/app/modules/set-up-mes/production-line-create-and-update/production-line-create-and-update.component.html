@@ -1,0 +1,40 @@
+<div class="modal fade" id="modalProductionLineCreateAndUpdate" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="production-line-create-and-update">
+        <form [formGroup]="productionLineForm" (ngSubmit)="onProductionLineFormSubmit()">
+          <div class="card-form">
+            <div class="card-title">
+              {{ id.value ? 'Editar línea de producción' : 'Nueva línea de producción' }}
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <app-form-group class="form-group-classic" [id]="'name'" [title]="'Nombre'" [required]="true"
+                  [abstractControl]="name">
+                  <input class="form-control" id="name" type="text" formControlName="name" placeholder="Nombre">
+                </app-form-group>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <app-form-group class="form-group-classic" [id]="'code'" [title]="'Código'" [required]="true"
+                  [abstractControl]="code">
+                  <input class="form-control" id="code" type="text" formControlName="code" placeholder="Código">
+                </app-form-group>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-4 ml-auto">
+                <button type="submit" class="btn btn-success btn-block" [appBusy]="busy">
+                  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                  <span class="btn-text">{{ id.value ? 'Actualizar' : 'Guardar' }}</span>
+                </button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="btn btn-light btn-block" (click)="onBackClick()">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

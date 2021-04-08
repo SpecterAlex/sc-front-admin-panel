@@ -1,0 +1,74 @@
+<div class="user-create-and-update">
+  <div class="page-title">
+    <i class="page-btn-back fas fa-chevron-left" (click)="onBackClick()"></i>
+    <span class="btn-text"> {{ id.value ? 'Editar ' : ' Nuevo ' }} usuario</span>
+  </div>
+  <form [formGroup]="userForm" (ngSubmit)="onUserFormSubmit()">
+    <div class="row no-gutters mt-3">
+      <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+        <div class="card-form">
+          <div class="card-title">
+            Datos del usuario
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'first_name'" [title]="'Nombre'" [required]="true"
+                [abstractControl]="first_name">
+                <input class="form-control" id="first_name" type="text" formControlName="first_name"
+                  placeholder="Nombre">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'last_name'" [title]="'Apellidos'" [required]="true"
+                [abstractControl]="last_name">
+                <input class="form-control" id="last_name" type="text" formControlName="last_name"
+                  placeholder="Apellidos">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'email'" [title]="'Correo electrónico'" [required]="true"
+                [abstractControl]="email">
+                <input class="form-control" id="email" type="text" formControlName="email"
+                  placeholder="Correo electrónico">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'phone_number'" [title]="'Celular'" [required]="true"
+                [abstractControl]="phone_number">
+                <input class="form-control" id="phone_number" type="text" formControlName="phone_number"
+                  placeholder="Celular" maxlength="10" appInputRestriction="onlyNumbers">
+              </app-form-group>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <app-form-group class="form-group-classic" [id]="'password'" [title]="'Contraseña'" [required]="true"
+                [abstractControl]="password">
+                <div class="password-container">
+                  <input class="form-control" id="password" [type]="showPassword ? 'text':'password'"
+                    formControlName="password" placeholder="Contraseña">
+                </div>
+              </app-form-group>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 pl-3">
+        <div class="card-form">
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-success btn-block" [appBusy]="busy" >
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                <span class="btn-text">{{ id.value ? 'Actualizar' : 'Guardar' }}</span>
+            </button>
+            </div>
+            <div class="col-12 mt-3" *ngIf="id.value">
+              <button type="button" class="btn btn-danger btn-block" (click)="onDeleteUser()">Eliminar</button>
+            </div>
+            <div class="col-12 mt-3">
+              <button type="button" class="btn btn-light btn-block" (click)="onBackClick()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

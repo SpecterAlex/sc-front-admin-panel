@@ -1,0 +1,9 @@
+<div class="label-group">
+    <div class="label-title" data-cy="label-title">
+        {{ title }}
+    </div>
+    <div *ngIf="message" class="label-value" data-cy="label-value">
+        {{ message }}
+    </div>
+    <ng-content></ng-content>
+</div>

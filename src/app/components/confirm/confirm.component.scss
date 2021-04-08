@@ -1,0 +1,21 @@
+.modal-confirm {
+    text-align: center;
+
+    .modal-body {
+        padding: 2rem 2.5rem;
+    }
+}
+
+.modal-title {
+    color: #2b2b2b;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-text-message{
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    padding-bottom: 1rem;
+}

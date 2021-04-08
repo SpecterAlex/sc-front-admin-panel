@@ -1,0 +1,32 @@
+<ul class="navbar-nav sidebar sidebar-dark accordion">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center">
+    <div class="sidebar-brand-icon">
+      <i class="fas fa-briefcase"></i>
+    </div>
+    <div class="sidebar-brand-text mx-3">Back Office</div>
+  </a>
+  <hr class="sidebar-divider my-0">
+  <li *ngFor="let navLink of sideBarLinks" [routerLinkActive]="['active']" class="nav-item">
+    <a *ngIf="!navLink.navLinks" [routerLink]="[navLink.routerLink]" class="nav-link">
+      <i [class]="navLink.icon"></i>
+      <span>{{ navLink.title }}</span>
+    </a>
+    <div *ngIf="navLink.navLinks">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" [attr.data-target]="'#'+ navLink.title"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i [class]="navLink.icon"></i>
+        <span>{{ navLink.title}}</span>
+      </a>
+      <div [id]="navLink.title" class="collapse" aria-labelledby="headingTwo">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a *ngFor="let subNavLink of navLink.navLinks" [routerLinkActive]="['active']"
+            [routerLink]="[subNavLink.routerLink]" class="collapse-item">
+            <i [class]="subNavLink.icon"></i>
+            {{ subNavLink.title }}
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr class="sidebar-divider my-0" *ngIf="navLink.id === 'dashboard'">
+  </li>
+</ul>
